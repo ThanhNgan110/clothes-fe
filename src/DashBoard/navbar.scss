@@ -1,0 +1,77 @@
+#admin_navbar {
+  width: 230px;
+  height: 100vh;
+  background-color: #212529;
+  position: fixed;
+  padding: 33px 0;
+  color: rgba($color: #fff, $alpha: 0.7);
+
+  .admin_navbar--item {
+    list-style: none;
+    margin: 10px 0;
+    transition: all 0.2s linear;
+    overflow: hidden;
+
+    a {
+      color: rgba($color: #fff, $alpha: 0.7);
+      text-decoration: none;
+      display: block;
+    }
+
+    & > label,
+    & > a {
+      //   background-color: red;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      & > span {
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      ion-icon {
+        padding: 8px;
+        font-size: 18px;
+        transition: all 0.3s linear;
+      }
+
+      & > .admin_navbar_icon--drop {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: all 0.3s linear;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    & > .admin_navbar_drop--list {
+      display: block;
+      color: #212529;
+      visibility: hidden;
+
+      &.active {
+        display: block;
+        color: rgba($color: #fff, $alpha: 0.7);
+        transition: all 0.4s linear;
+        visibility: visible;
+
+        & > .admin_navbar_drop--item:hover {
+          color: #fff;
+        }
+      }
+
+      & > .admin_navbar_drop--item {
+        cursor: pointer;
+        padding: 10px 45px;
+        font-size: 15px;
+      }
+    }
+  }
+}

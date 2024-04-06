@@ -1,0 +1,111 @@
+#admin_login--page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #232e33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #admin_login--panel {
+    --values: 450px;
+    width: var(--values);
+    height: calc(var(--values) + 50px);
+    background-color: #1b2028;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px rgba($color: #000000, $alpha: 0.4);
+
+    #admin_login--logo {
+      --values1: 150px;
+      width: var(--values1);
+      height: var(--values1);
+      background-position: center;
+      background-size: cover;
+      margin: 0 auto;
+      transform: rotate(315deg);
+    }
+
+    #admin_login--form {
+      padding: 0 55px;
+      & > .admin_login--form-item {
+        position: relative;
+        margin: 20px 0;
+        border: 2px solid #15c3cf;
+        border-radius: 5px;
+        & > label {
+          position: absolute;
+          color: #fff;
+          top: -15px;
+          left: 22px;
+          background-color: #1b2028;
+          padding: 0px 5px;
+        }
+
+        & > input {
+          width: 100%;
+          padding: 13px 20px;
+          outline: none;
+          border: none;
+          background-color: transparent;
+          color: #fff;
+        }
+      }
+    }
+
+    #admin_login--subform {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & > #admin_login--btn {
+        color: #fff;
+        width: 150px;
+        height: 50px;
+        margin: auto;
+        background-color: transparent;
+        border: none;
+        position: relative;
+
+        & > span {
+          position: absolute;
+          background-color: #15c3cf;
+          display: block;
+          transition: all 0.25s linear;
+
+          &:nth-child(1) {
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+          }
+
+          &:nth-child(2) {
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 0;
+          }
+
+          &:nth-child(3) {
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+          }
+          &:nth-child(4) {
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            height: 0;
+          }
+        }
+
+        &:hover span:nth-child(odd) {
+          width: 100%;
+        }
+        &:hover span:nth-child(even) {
+          height: 100%;
+        }
+      }
+    }
+  }
+}

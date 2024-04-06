@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+#admin_allacc--wrapper {
+  font-family: "Roboto", sans-serif;
+  #admin_head--allacc {
+  }
+
+  #admin_allacc--content {
+    width: 100%;
+    border: 1px solid #ccc;
+
+    table {
+      width: 100%;
+      & > thead {
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        & > tr {
+          th {
+            padding: 10px;
+          }
+        }
+      }
+      & > tbody {
+        & > tr {
+          td {
+            padding: 10px;
+          }
+
+          &:nth-child(odd) {
+            background-color: rgb(244, 244, 244);
+          }
+        }
+      }
+      #admin_allacc--listacc {
+        .admin_allacc--listacc-item {
+          text-align: center;
+          .admin_allacc--listacc-item-img {
+            width: 10%;
+            & > .admin__img {
+              width: 100%;
+              height: 85px;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+          }
+          .admin_allacc--listacc-item-name {
+            width: 25%;
+            & > span {
+              display: -webkit-box;
+              width: 100%;
+              height: 20px;
+              overflow: hidden;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+            }
+          }
+          .admin_allacc--listacc-item-id {
+            width: 15%;
+          }
+          .admin_allacc--listacc-item-warehouse {
+            width: 10%;
+          }
+          .admin_allacc--listacc-item-price {
+            width: 15%;
+          }
+          .admin_allacc--listacc-item-origin {
+            width: 15%;
+          }
+          .admin_allacc--listacc-item-btn {
+            width: 15%;
+            & > button {
+              padding: 5px 15px;
+              border: 1px solid #ccc;
+            }
+          }
+        }
+      }
+    }
+
+    #admin_allacc--pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid #ccc;
+      padding: 15px;
+      .admin_allacc--pagination-item {
+        --vl: 30px;
+        width: var(--vl);
+        height: var(--vl);
+        margin: 0 7px;
+        border-color: #ccc;
+        &.active {
+          background-color: #212529;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
