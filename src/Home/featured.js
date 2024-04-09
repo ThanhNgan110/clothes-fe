@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
 import axioisClient from "../axios";
-import { useContext, useEffect, useLayoutEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { HandleContext } from "../index";
 

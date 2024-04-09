@@ -43,6 +43,8 @@
       display: flex;
       padding: 10px 0 20px;
       border-bottom: 1px solid #ccc;
+      justify-content: space-evenly;
+    
       #profile_header--img {
         --values: 230px;
         width: var(--values);
@@ -54,7 +56,7 @@
       }
 
       #profile_header--title {
-        flex: 1;
+        // flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;

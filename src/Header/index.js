@@ -10,7 +10,7 @@ import styles from "./index.module.scss";
 
 import logo from "./logo.png";
 export default function Header() {
-  const { handle_get_size_cart } = useContext(HandleContext);
+  const { handleGetSizeCart} = useContext(HandleContext);
 
   const [isLogin, setIlogin] = useState(
     Boolean(localStorage.getItem("isLogin"))
@@ -62,7 +62,7 @@ export default function Header() {
 
       xử lý thông báo số lượng sản phẩm trong giỏ
     */
-      handle_get_size_cart(localStorage.getItem("isLogin"));
+      handleGetSizeCart(localStorage.getItem("isLogin"));
     }
   }, []);
 

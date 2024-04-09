@@ -9,7 +9,7 @@ function handleClick(isLoginPage, callback) {
 	callback(!isLoginPage);
 }
 
-//Xử lý gửi form đăng nhập
+//function login
 function handleLogin(username, password, role = "USER_ROLE", redirect = "/") {
 	if (!Boolean(username) || !Boolean(password)) {
 		Swal.fire({
@@ -54,7 +54,7 @@ function handleLogin(username, password, role = "USER_ROLE", redirect = "/") {
 	}
 }
 
-//Xử lý gửi form đăng ký
+//function register
 function handleRegsiter(
 	username,
 	password,
@@ -156,7 +156,7 @@ function handle_add_to_cart(user_id, product_id, one_pr_price, amount) {
 }
 
 // lấy ra số lượng đơn hàng trong giỏ hàng
-function handle_get_size_cart(user_id) {
+function handleGetSizeCart(user_id) {
 	axioisClient
 		.get(`user/carts/${user_id}`)
 		.then((res) => {
@@ -436,38 +436,41 @@ async function handleUploadCloudinary(file) {
 }
 
 // search product
-async function handlesearchProductByName(valueSearch) {
-    try {
-        const response = await axioisClient.post("/search-product", { valueSearch });
-        const res = response.data;
-		console.log(res, 'data');
-
-        if (res.err) {
-            Swal.fire({
-                icon: "error",
-                text: `${res.mess}`,
-                timer: 1100,
-            });
-        } else {
-            console.log(res.data, 'data search');
-            Swal.fire({
-                icon: "success",
-                text: `${res.mess}`,
-                timer: 1100,
-            });
-            setTimeout(() => {
-                window.location.replace(window.location.href);
-            }, 1100);
-        }
-    } catch (error) {
-        Swal.fire({
-            icon: "error",
-            text: `Có lỗi trong quá trình thực hiện`,
-        });
-        console.log(error);
-    }
+async function handleSearchProductByName(valueSearch) {
+	try {
+		const response = await axioisClient.post("/search-product", {
+			name: valueSearch,
+		});
+		const res = response;
+		console.log("valuesearch", valueSearch);
+		console.log(res, "data");
+	} catch (error) {
+		Swal.fire({
+			icon: "error",
+			text: `Có lỗi trong quá trình thực hiện`,
+		});
+		console.log(error);
+	}
 }
 
+// Thống kê
+async function handleStatictisProductAndBill() {
+	try {
+		const response = await axioisClient.get("/statistics-product");
+		console.log("res", response.countProducts);
+		return {
+			countProducts: response.countProducts,
+			valueProducts: response.valueProducts,
+			countBills: response.countBills,
+		};
+	} catch (error) {
+		Swal.fire({
+			icon: "error",
+			text: `Có lỗi trong quá trình thực hiện`,
+		});
+		console.log(error);
+	}
+}
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -475,7 +478,7 @@ export default {
 	handleLogin,
 	handleRegsiter,
 	handle_add_to_cart,
-	handle_get_size_cart,
+	handleGetSizeCart,
 	checkLogin,
 	handleDeleteProductFormCart,
 	handlePayment,
@@ -486,5 +489,6 @@ export default {
 	handleUploadCloudinary,
 	handleUpdateAccByAdmin,
 	handleDeleteAccByAdmin,
-	handlesearchProductByName
+	handleSearchProductByName,
+	handleStatictisProductAndBill,
 };

@@ -22,9 +22,9 @@ function Detail({ data, handleClose }) {
 
 	return (
 		<>
-			<div id="admin_details-product">
-				<div id="admin_details-product-form">
-					<div id="admin_details-product-form-close-icon">
+			<div id="admin_details-acc">
+				<div id="admin_details-acc-form">
+					<div id="admin_details-acc-form-close-icon">
 						<ion-icon
 							name="close"
 							onClick={() => {
@@ -32,8 +32,8 @@ function Detail({ data, handleClose }) {
 							}}
 						></ion-icon>
 					</div>
-					<div id="admin_details-product--list-info">
-						<div className="admin_details-product--info-item">
+					<div id="admin_details-acc--list-info">
+						<div className="admin_details-acc--info-item">
 							<label htmlFor="">User name:</label>
 							<input
 								type="text"
@@ -43,7 +43,7 @@ function Detail({ data, handleClose }) {
 									setName(e.target.value);
 								}}
 							/>
-							<div className="admin_details-product--edit-icon">
+							<div className="admin_details-acc--edit-icon">
 								<ion-icon
 									name="brush"
 									onClick={() => {
@@ -52,7 +52,7 @@ function Detail({ data, handleClose }) {
 								></ion-icon>
 							</div>
 						</div>
-						<div className="admin_details-product--info-item">
+						<div className="admin_details-acc--info-item">
 							<label htmlFor="">Email:</label>
 							<input
 								type="text"
@@ -62,7 +62,7 @@ function Detail({ data, handleClose }) {
 									setEmail(e.target.value);
 								}}
 							/>
-							<div className="admin_details-product--edit-icon">
+							<div className="admin_details-acc--edit-icon">
 								<ion-icon
 									name="brush"
 									onClick={() => {
@@ -71,7 +71,7 @@ function Detail({ data, handleClose }) {
 								></ion-icon>
 							</div>
 						</div>
-						<div className="admin_details-product--info-item">
+						<div className="admin_details-acc--info-item">
 							<label htmlFor="">Phone:</label>
 							<input
 								type="text"
@@ -81,7 +81,7 @@ function Detail({ data, handleClose }) {
 									setPhone(e.target.value);
 								}}
 							/>
-							<div className="admin_details-product--edit-icon">
+							<div className="admin_details-acc--edit-icon">
 								<ion-icon
 									name="brush"
 									onClick={() => {
@@ -90,7 +90,7 @@ function Detail({ data, handleClose }) {
 								></ion-icon>
 							</div>
 						</div>
-						<div className="admin_details-product--info-item">
+						<div className="admin_details-acc--info-item">
 							<label htmlFor="">Address:</label>
 							<input
 								type="text"
@@ -100,7 +100,7 @@ function Detail({ data, handleClose }) {
 									setAddress(e.target.value);
 								}}
 							></input>
-							<div className="admin_details-product--edit-icon">
+							<div className="admin_details-acc--edit-icon">
 								<ion-icon
 									name="brush"
 									onClick={() => {
@@ -109,7 +109,7 @@ function Detail({ data, handleClose }) {
 								></ion-icon>
 							</div>
 						</div>
-						<div className="admin_details-product--info-item">
+						<div className="admin_details-acc--info-item">
 							<label htmlFor="">Role:</label>
 							<input
 								type="text"
@@ -119,7 +119,7 @@ function Detail({ data, handleClose }) {
 									setRole(e.target.value);
 								}}
 							/>
-							<div className="admin_details-product--edit-icon">
+							<div className="admin_details-acc--edit-icon">
 								<ion-icon
 									name="brush"
 									onClick={() => {
@@ -129,16 +129,16 @@ function Detail({ data, handleClose }) {
 							</div>
 						</div>
 					</div>
-					<div id="btn_update-product">
+					<div id="btn_update-acc">
 						<button
-							id="btn_update-product--detele"
+							id="btn_update-acc--detele"
 							onClick={() => {handleDeleteAccByAdmin(data._id);
 								console.log('acc_id', data._id);
 							}
 							}>Xóa
 						</button>
 						<button
-							id="btn_update-product--save"
+							id="btn_update-acc--save"
 							onClick={() => {
 								handleUpdateAccByAdmin({
 									_id: data._id,
@@ -146,8 +146,7 @@ function Detail({ data, handleClose }) {
 									email: email,
 									phone: phone,
 									address: address,
-									role: role,});}}>
-							Lưu
+									role: role,});}}>Lưu
 						</button>
 					</div>
 				</div>

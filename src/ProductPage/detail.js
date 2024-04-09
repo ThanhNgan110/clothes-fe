@@ -19,7 +19,7 @@ export default function Datails() {
     axioisClient
       .get(`product-by-id/${params.get("id")}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setProduct(res.data);
       })
       .catch((error) => {
@@ -27,7 +27,7 @@ export default function Datails() {
       });
   }, []);
 
-  const hanhdleChangeAmount = (step) => {
+  const handleChangeAmount = (step) => {
     setAmount((prev) => {
       const temp = parseInt(prev) + step;
       if (temp <= 0) {
@@ -66,7 +66,7 @@ export default function Datails() {
               <div id="details_info-amount-item">
                 <span
                   onClick={() => {
-                    hanhdleChangeAmount(-1);
+                    handleChangeAmount(-1);
                   }}
                 >
                   <ion-icon name="remove"></ion-icon>
@@ -86,7 +86,7 @@ export default function Datails() {
                 />
                 <span
                   onClick={() => {
-                    hanhdleChangeAmount(1);
+                    handleChangeAmount(1);
                   }}
                 >
                   <ion-icon name="add"></ion-icon>

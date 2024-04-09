@@ -1,5 +1,5 @@
 import axioisClient from "../axios";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useParams, Link } from "react-router-dom";
 
@@ -8,9 +8,8 @@ export default function Children() {
 	const [list_product, setList_product] = useState();
 
 	// gọi api để lấy dữ liệu cho việc render sản phẩm cho từng thương hiệu
-	useLayoutEffect(() => {
+	useEffect(() => {
 		axioisClient.get(`/san-pham/${slug}`).then((res) => {
-			console.log(res, "data");
 			setList_product(res);
 		});
 	}, [slug]);

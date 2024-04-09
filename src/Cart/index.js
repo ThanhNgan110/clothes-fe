@@ -1,4 +1,4 @@
-import { useState, useContext, useLayoutEffect, useRef } from "react";
+import { useState, useContext, useLayoutEffect} from "react";
 
 import "./css/index.scss";
 
@@ -27,7 +27,7 @@ export default function Cart_Page() {
     checkLogin,
     handleDeleteProductFormCart,
     handlePayment,
-    handle_get_size_cart,
+    handleGetSizeCart,
   } = useContext(HandleContext);
 
   const handleSums = (money) => {
@@ -53,6 +53,7 @@ export default function Cart_Page() {
     setTotalPayemt(new_money);
     setStrTtPayment(String_Money_temp);
   };
+  
   useLayoutEffect(() => {
     if (!checkLogin()) {
       window.location.replace("http://localhost:3000");
@@ -61,10 +62,10 @@ export default function Cart_Page() {
         .get(`user/carts/${localStorage.getItem("isLogin")}`)
         .then((res) => {
           setListIdCart(res.data);
-          const lists = res.data.map((item) => {
+          const list = res.data.map((item) => {
             return axioisClient.get(`/product-by-id/${item.product_id}`);
           });
-          Promise.all(lists).then((data) => {
+          Promise.all(list).then((data) => {
             setListPayment(data);
           });
         })
@@ -162,12 +163,12 @@ export default function Cart_Page() {
                       className="cart_delete--btn"
                       onClick={(e) => {
                         handleDeleteProductFormCart(listIdCart[index]._id);
-                        handle_get_size_cart(localStorage.getItem("isLogin"));
+                        handleGetSizeCart(localStorage.getItem("isLogin"));
                         setListPayment((prev) =>
-                          prev.filter((item, indexx) => indexx != index)
+                          prev.filter((item, indexx) => indexx !== index)
                         );
                         setListIdCart((prev) =>
-                          prev.filter((item, indexx) => indexx != index)
+                          prev.filter((item, indexx) => indexx !== index)
                         );
                       }}
                     >

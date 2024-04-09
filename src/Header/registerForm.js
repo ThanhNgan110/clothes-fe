@@ -26,7 +26,7 @@ export default function RegisterPage({ ischeck }) {
         address
       );
     };
-  }, [username, password, confirmPassword, email, phone, address]);
+  }, [username, password, confirmPassword, email, phone, address, handleRegsiter]);
 
   //Xử lý nút chuyển sang login pages
   useEffect(() => {
@@ -129,9 +129,9 @@ export default function RegisterPage({ ischeck }) {
           <div id={styles.btn_sub} onClick={() => console.log(123)}>
             <span>Đăng ký</span>
           </div>
-          <div id={styles.forgot_password}>
-            <span>{/* Quên <Link to="">Tài Khoản / Mật Khẩu ?</Link> */}</span>
-          </div>
+          {/* <div id={styles.forgot_password}>
+            <span></span>
+          </div> */}
           <div id={styles.create_accout}>
             <span>
               Đăng nhập nếu bạn đã có

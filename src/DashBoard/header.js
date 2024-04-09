@@ -6,7 +6,6 @@ import { HandleContext } from "../index.js";
 
 function Header() {
   const { handleLogout } = useContext(HandleContext);
-  console.log("Header admin re-render");
   return (
     <>
       <div id="admin_header--bar">

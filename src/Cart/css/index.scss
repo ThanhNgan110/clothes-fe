@@ -52,7 +52,7 @@
         #cart_img {
           --values: 100px;
           width: var(--values);
-          height: var(--values);
+          height: auto;
           background-color: rebeccapurple;
         }
         span {
