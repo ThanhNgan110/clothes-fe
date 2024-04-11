@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+#add-category-form input {
+	border: 1px solid #ccc;
+  padding: 5px 15px;
+}
+button.btn-add {
+	padding: 5px 15px;
+	border: 1px solid #ccc;
+  margin-left: 10px;
+}
+
+#admin_allcategory--wrapper {
+	font-family: "Roboto", sans-serif;
+	margin-top: 50px;
+	#admin_allcategory--content {
+		width: 100%;
+		border: 1px solid #ccc;
+
+		table {
+			width: 100%;
+			& > thead {
+				text-align: center;
+				border-bottom: 1px solid #ccc;
+				& > tr {
+					th {
+						padding: 10px;
+					}
+				}
+			}
+			& > tbody {
+				& > tr {
+					td {
+						padding: 10px;
+					}
+
+					&:nth-child(odd) {
+						background-color: rgb(244, 244, 244);
+					}
+				}
+			}
+			#admin_allcategory--listproduct {
+				.admin_allcategory--listproduct-item {
+					text-align: center;
+					.admin_allcategory--listproduct-item-img {
+						width: 10%;
+						& > .admin__img {
+							width: 100%;
+							height: 85px;
+							background-position: center;
+							background-repeat: no-repeat;
+							background-size: cover;
+						}
+					}
+					.admin_allcategory--listproduct-item-name {
+						width: 25%;
+						& > span {
+							display: -webkit-box;
+							width: 100%;
+							height: 20px;
+							overflow: hidden;
+							-webkit-line-clamp: 1;
+							-webkit-box-orient: vertical;
+						}
+					}
+					.admin_allcategory--listproduct-item-id {
+						width: 15%;
+					}
+					.admin_allcategory--listproduct-item-warehouse {
+						width: 10%;
+					}
+					.admin_allcategory--listproduct-item-price {
+						width: 15%;
+					}
+					.admin_allcategory--listproduct-item-origin {
+						width: 15%;
+					}
+					.admin_allcategory--listproduct-item-btn {
+						width: 15%;
+						& > button {
+							padding: 5px 15px;
+							border: 1px solid #ccc;
+						}
+					}
+				}
+			}
+		}
+
+		#admin_allcategory--pagination {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-top: 1px solid #ccc;
+			padding: 15px;
+			.admin_allcategory--pagination-item {
+				--vl: 30px;
+				width: var(--vl);
+				height: var(--vl);
+				margin: 0 7px;
+				border-color: #ccc;
+				&.active {
+					background-color: #212529;
+					color: #fff;
+				}
+			}
+		}
+	}
+}

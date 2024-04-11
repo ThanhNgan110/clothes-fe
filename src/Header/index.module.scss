@@ -1,0 +1,306 @@
+#header {
+  width: 100%;
+  height: 150px;
+  padding: 0 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  background-color: #fff;
+  & a {
+    text-decoration: none;
+    color: #000000;
+  }
+  & > .header_item {
+    height: 100%;
+
+    &:last-child {
+      display: flex;
+      align-items: center;
+    }
+
+    & > a {
+      display: block;
+      height: 100%;
+
+      & > img {
+        // width: 150px;
+        display: block;
+        height: 100%;
+      }
+    }
+
+    & > #nav_bar {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      & > .nav_bar_item {
+        // height: 100%;
+        list-style: none;
+        margin: 0 20px;
+        text-transform: uppercase;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        & > a {
+          font-size: 15px;
+          border-radius: 8px;
+          padding: 10px 15px;
+          color: rgba($color: #000000, $alpha: 0.8);
+          transition: all 0.3s linear;
+        }
+
+        & > .active {
+          background-color: rgba($color: #000000, $alpha: 0.7);
+          color: #fff;
+        }
+
+        &:hover a {
+          background-color: rgba($color: #000000, $alpha: 0.7);
+          color: #fff;
+        }
+      }
+    }
+
+    & > #user {
+      display: flex;
+      align-items: center;
+
+      & > #form,
+      #cart {
+        position: relative;
+        & > a,
+        span {
+          display: flex;
+          align-items: center;
+          font-size: 20px;
+          font-weight: 600;
+          padding: 10px;
+          margin: 0 5px;
+          transition: all 0.2s linear;
+        }
+      }
+
+      #form:hover a,
+      #form:hover span {
+        border-radius: 100%;
+        background-color: rgba($color: #000000, $alpha: 0.9);
+        color: #fff;
+        cursor: pointer;
+      }
+
+      #cart {
+        a,
+        span {
+          border-radius: 100%;
+          background-color: rgba($color: #000000, $alpha: 0.9);
+          color: #fff;
+          cursor: pointer;
+        }
+
+        & > #amount {
+          position: absolute;
+          --values: 20px;
+          width: var(--values);
+          height: var(--values);
+          text-align: center;
+          line-height: var(--values);
+          top: -3px;
+          right: 0;
+          background-color: #fff;
+          border-radius: 100%;
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  z-index: 99;
+  display: none;
+  #form_input {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: calc(var(--values) - 200px);
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 70px;
+    animation: zoomIn 0.3s linear;
+    & > #close_icon {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+
+      & > ion-icon {
+        font-size: 20px;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+    & > .form_item {
+      // width: calc(100% / 2);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & > img {
+          --values: 250px;
+          width: calc(var(--values) + 30px);
+          height: var(--values);
+          z-index: 1;
+          transition: all 0.2s linear;
+          &:hover {
+            transform: rotate3d(3, 9, 1, 50deg) scale(1.2);
+          }
+        }
+      }
+
+      #title_form {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        padding: 15px;
+        span {
+          text-align: center;
+          font-size: 30px;
+          text-transform: uppercase;
+          font-weight: 600;
+          text-shadow: 4px 2px rgba($color: #000000, $alpha: 0.2);
+        }
+      }
+
+      #sub_form {
+        max-height: 230px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        & > .sub_form_item {
+          width: 300px;
+          background-color: #e6e6e6;
+          display: flex;
+          align-items: center;
+          border-radius: 25px;
+          padding: 0 10px 0 20px;
+          margin: 15px 0;
+          .icon {
+            display: flex;
+            align-items: center;
+            & > ion-icon {
+              font-size: 25px;
+            }
+          }
+          & > input {
+            width: 100%;
+            height: 100%;
+            padding: 15px 10px;
+            margin-left: 5px;
+            border: none;
+            border-radius: 25px;
+            background-color: transparent;
+            outline: none;
+            &::placeholder {
+            }
+          }
+        }
+      }
+      #btn_sub {
+        width: 100%;
+        padding: 20px 0;
+        & > span {
+          display: block;
+          background-color: #57b846;
+          padding: 15px 0;
+          border-radius: 25px;
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: 600;
+          color: #fff;
+          cursor: pointer;
+          transition: all 0.3s linear;
+          &:hover {
+            background-color: #333333;
+          }
+        }
+      }
+
+      #forgot_password {
+        width: 100%;
+        text-align: center;
+
+        & > span {
+          color: #aaa;
+          & > a {
+            color: rgba($color: #000000, $alpha: 0.8);
+            text-decoration: none;
+            transition: all 0.3s linear;
+            &:hover {
+              color: #57b846;
+            }
+          }
+        }
+      }
+
+      #create_accout {
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        & > span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: rgba($color: #000000, $alpha: 0.7);
+          cursor: pointer;
+          transition: all 0.3s linear;
+          & > ion-icon {
+            padding: 0 8px;
+          }
+
+          &:hover {
+            color: #57b846;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

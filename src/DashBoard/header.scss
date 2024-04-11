@@ -1,0 +1,68 @@
+#admin_header--bar {
+  width: 100vw;
+  height: 60px;
+  background-color: #212529;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+#admin_header--user {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  #control_form:checked ~ #admin_header--control {
+    display: block;
+  }
+}
+
+#admin_header--icon-user > ion-icon {
+  color: #fff;
+  font-size: 23px;
+}
+
+#admin_header--icon-down > ion-icon {
+  color: #fff;
+  font-size: 15px;
+  padding: 0 5px;
+}
+
+#admin_header--control {
+  position: absolute;
+  background-color: #fff;
+  width: 200px;
+  top: 100%;
+  right: 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding-top: 1px;
+  padding-left: 0;
+  margin-bottom: -4px;
+  margin-right: -2px;
+  overflow: hidden;
+  display: none;
+  animation: growth 0.25s linear;
+  & > .admin_header--control-item {
+    width: calc(100% + 2px);
+    list-style: none;
+    // display: list-item;
+    padding: 10px 15px;
+    &:hover {
+      background-color: #ccc;
+    }
+
+    &:last-child {
+      border-top: 1px solid rgba($color: #000000, $alpha: 0.7);
+    }
+  }
+}
+
+@keyframes growth {
+  from {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,6 @@
+#error {
+  --values: 400px;
+  width: var(--values);
+  height: var(--values);
+  margin: 40px auto;
+}
