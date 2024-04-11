@@ -6,18 +6,18 @@ export default function AddUser() {
 	const { addProductByAdmin } = useContext(HandleContext);
 	const [name, setProductName] = useState("");
 	const [price, setProductPrice] = useState("");
-	const [amount, setProductAmount] = useState("");
-	const [origin, setProductOrigin] = useState("");
-	const [image, setProductImage] = useState("");
+	// const [amount, setProductAmount] = useState("");
+	// const [origin, setProductOrigin] = useState("");
+	// const [image, setProductImage] = useState("");
 
 	//xử lý xem hình ảnh trước khi gửi lên server
-	const handleOnchangeImage = (e) => {
-		const file_name = document.querySelector("#file_name");
-		const file = e.target.files[0];
-		setProductImage(file);
-		const urlImageTemp = URL.createObjectURL(file);
-		file_name.style.backgroundImage = `url('${urlImageTemp}')`;
-	};
+	// const handleOnchangeImage = (e) => {
+	// 	const file_name = document.querySelector("#file_name");
+	// 	const file = e.target.files[0];
+	// 	setProductImage(file);
+	// 	const urlImageTemp = URL.createObjectURL(file);
+	// 	file_name.style.backgroundImage = `url('${urlImageTemp}')`;
+	// };
 
 	const handleChangePrice = (price) => {
 		var newPrice = price.replaceAll(".", "");

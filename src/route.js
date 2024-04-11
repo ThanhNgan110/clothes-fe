@@ -16,6 +16,7 @@ import AddProduct from "./DashBoard/AddProduct/index";
 import LoginAdminPage from "./DashBoard/LoginInAdmin";
 import AllUser from "./DashBoard/AllUser/allAccount";
 import AddUser from "./DashBoard/AddUser";
+import Category from "./DashBoard/Category";
 export default function Router() {
 	return (
 		<>
@@ -39,11 +40,9 @@ export default function Router() {
 					<Route path="add-product" element={<AddProduct></AddProduct>} />
 					<Route path="all-user" element={<AllUser></AllUser>} />
 					{/* <Route path="add-user" element={<AddUser></AddUser>} /> */}
+					<Route path="category" element={<Category></Category>} />
 				</Route>
-				<Route
-					path="admin/login"
-					element={<LoginAdminPage></LoginAdminPage>}
-				></Route>
+				<Route path="admin/login" element={<LoginAdminPage></LoginAdminPage>}></Route>
 			</Routes>
 		</>
 	);

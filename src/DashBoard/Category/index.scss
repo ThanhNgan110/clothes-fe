@@ -1,8 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
 
-#admin_allproduct--wrapper {
+#add-category-form input {
+	border: 1px solid #ccc;
+  padding: 5px 15px;
+}
+button.btn-add {
+	padding: 5px 15px;
+	border: 1px solid #ccc;
+  margin-left: 10px;
+}
+
+#admin_allcategory--wrapper {
 	font-family: "Roboto", sans-serif;
-	#admin_allproduct--content {
+	margin-top: 50px;
+	#admin_allcategory--content {
 		width: 100%;
 		border: 1px solid #ccc;
 
@@ -28,10 +39,10 @@
 					}
 				}
 			}
-			#admin_allproduct--listproduct {
-				.admin_allproduct--listproduct-item {
+			#admin_allcategory--listproduct {
+				.admin_allcategory--listproduct-item {
 					text-align: center;
-					.admin_allproduct--listproduct-item-img {
+					.admin_allcategory--listproduct-item-img {
 						width: 10%;
 						& > .admin__img {
 							width: 100%;
@@ -41,7 +52,7 @@
 							background-size: cover;
 						}
 					}
-					.admin_allproduct--listproduct-item-name {
+					.admin_allcategory--listproduct-item-name {
 						width: 25%;
 						& > span {
 							display: -webkit-box;
@@ -52,19 +63,19 @@
 							-webkit-box-orient: vertical;
 						}
 					}
-					.admin_allproduct--listproduct-item-id {
+					.admin_allcategory--listproduct-item-id {
 						width: 15%;
 					}
-					.admin_allproduct--listproduct-item-warehouse {
+					.admin_allcategory--listproduct-item-warehouse {
 						width: 10%;
 					}
-					.admin_allproduct--listproduct-item-price {
+					.admin_allcategory--listproduct-item-price {
 						width: 15%;
 					}
-					.admin_allproduct--listproduct-item-origin {
+					.admin_allcategory--listproduct-item-origin {
 						width: 15%;
 					}
-					.admin_allproduct--listproduct-item-btn {
+					.admin_allcategory--listproduct-item-btn {
 						width: 15%;
 						& > button {
 							padding: 5px 15px;
@@ -75,13 +86,13 @@
 			}
 		}
 
-		#admin_allproduct--pagination {
+		#admin_allcategory--pagination {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			border-top: 1px solid #ccc;
 			padding: 15px;
-			.admin_allproduct--pagination-item {
+			.admin_allcategory--pagination-item {
 				--vl: 30px;
 				width: var(--vl);
 				height: var(--vl);

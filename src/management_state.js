@@ -150,7 +150,6 @@ function handle_add_to_cart(user_id, product_id, one_pr_price, amount) {
 					});
 				} else {
 				}
-				console.log(res);
 			});
 	}
 }
@@ -387,17 +386,14 @@ async function handleUpdateAccByAdmin(account) {
 					icon: "error",
 					text: `Có lỗi trong quá trình thực hiện`,
 				});
-				console.log(err);
 			});
-	} catch (error) {
-		console.log(error);
-	}
+	} catch (error) {}
 }
 
-async function handleDeleteAccByAdmin(id) {
+async function handleDeleteAccByAdmin(_id) {
 	try {
-		console.log(id, "id account");
-		axioisClient.post("/admin/delete-account").then((res) => {
+		console.log(_id, "id account");
+		axioisClient.post("/admin/delete-account",{_id}).then((res) => {
 			if (res.err) {
 				Swal.fire({
 					icon: "error",
@@ -420,7 +416,6 @@ async function handleDeleteAccByAdmin(id) {
 			icon: "error",
 			text: `Có lỗi trong quá trình thực hiện`,
 		});
-		console.log(error);
 	}
 }
 
@@ -449,7 +444,6 @@ async function handleSearchProductByName(valueSearch) {
 			icon: "error",
 			text: `Có lỗi trong quá trình thực hiện`,
 		});
-		console.log(error);
 	}
 }
 
@@ -468,7 +462,82 @@ async function handleStatictisProductAndBill() {
 			icon: "error",
 			text: `Có lỗi trong quá trình thực hiện`,
 		});
-		console.log(error);
+	}
+}
+
+// get all category
+async function handleGetAllCategory() {
+	try {
+		const response = await axioisClient.get("/classify");
+		console.log("res", response.data);
+	} catch (error) {
+		console.error(error);
+	}
+}
+
+// delete category
+async function handleDeleteCategoryByAdmin(_id) {
+	try {
+		console.log(_id, "id category");
+		axioisClient.post("/delete-classify", { _id }).then((res) => {
+			if (res.err) {
+				Swal.fire({
+					icon: "error",
+					text: `${res.mess}`,
+					timer: 1100,
+				});
+			} else {
+				Swal.fire({
+					icon: "success",
+					text: `${res.mess}`,
+					timer: 1100,
+				});
+				setTimeout(() => {
+					window.location.replace(window.location.href);
+				}, 1100);
+			}
+		});
+	} catch (error) {
+		Swal.fire({
+			icon: "error",
+			text: `Có lỗi trong quá trình thực hiện`,
+		});
+	}
+}
+
+// add category
+function handleAddCategoryByAdmin(valueCategory) {
+	try {
+		console.log(valueCategory);
+		const category = {
+			name: valueCategory,
+		};
+		console.log(category, "category")
+    console.log(category,'1');
+		axioisClient.post("/add-classify", {
+				name: valueCategory,
+			})
+			.then((res) => {
+				if (res.err) {
+					Swal.fire({
+						icon: "error",
+						text: "Danh mục đã tồn tại...",
+						timer: 1100,
+					});
+				} else {
+					Swal.fire({
+						icon: "success",
+						text: "Thêm thành công...",
+						timer: 1100,
+					});
+				}
+			});
+	} catch (error) {
+		Swal.fire({
+			icon: "error",
+			text: "Có lỗi trong quá trình xử lý...",
+			timer: 1100,
+		});
 	}
 }
 
@@ -491,4 +560,7 @@ export default {
 	handleDeleteAccByAdmin,
 	handleSearchProductByName,
 	handleStatictisProductAndBill,
+	handleGetAllCategory,
+	handleDeleteCategoryByAdmin,
+	handleAddCategoryByAdmin,
 };

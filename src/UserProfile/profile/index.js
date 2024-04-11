@@ -7,15 +7,10 @@ export default function Profile({ profileUser }) {
     <>
       <div id="profile_main">
         <div id="profile_header">
-          {/* <div
+          <div
             id="profile_header--img"
             style={{ backgroundImage: `url('${avatar}')` }}
-          ></div> */}
-          <div id="profile_header--title">
-            <span>
-              <span>{profileUser.username}</span>
-            </span>
-          </div>
+          ></div>
         </div>
         <div id="profile_content">
           <table>
